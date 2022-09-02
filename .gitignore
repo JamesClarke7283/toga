@@ -31,6 +31,8 @@ pyvenv.cfg
 .envrc
 bin/
 lib/
+.projectile 
+# Ignore Emacs Projectile Config
 
 # Exclude briefcase packages from the examples dir.
 examples/*/macOS/
