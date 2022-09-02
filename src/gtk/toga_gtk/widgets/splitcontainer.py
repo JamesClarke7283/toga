@@ -31,6 +31,7 @@ class SplitContainer(Widget):
         self.native = TogaSplitContainer(self)
         # Use Paned widget rather than VPaned and HPaned deprecated widgets
         # Note that orientation in toga behave unlike Gtk
+        # FIXME: Currently can only set orientation on creation of widget, Not Moduler, Potentially replace with call to Base Widget's implementation.
         if self.interface.direction == self.interface.VERTICAL:
             self.native.set_orientation(Gtk.Orientation.HORIZONTAL)
         elif self.interface.direction == self.interface.HORIZONTAL:
@@ -71,5 +72,6 @@ class SplitContainer(Widget):
             self.interface.content[0].window = self.interface.window
             self.interface.content[1].window = self.interface.window
 
+    @PendingDeprecationWarning
     def set_direction(self, value):
         self.interface.factory.not_implemented('SplitContainer.set_direction()')

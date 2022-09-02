@@ -20,6 +20,7 @@ class Divider(Widget):
             self.interface.intrinsic.width = at_least(width[0])
             self.interface.intrinsic.height = height[1]
 
+    @PendingDeprecationWarning
     def set_direction(self, value):
         if value == self.interface.VERTICAL:
             self.native.set_orientation(Gtk.Orientation.VERTICAL)

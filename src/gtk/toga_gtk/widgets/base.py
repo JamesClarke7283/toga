@@ -2,8 +2,8 @@ from travertino.size import at_least
 
 from ..libs import (
     apply_gtk_style,
-    get_color_css,
     get_bg_color_css,
+    get_color_css,
     get_font_css
 )
 
@@ -95,6 +95,16 @@ class Widget:
             style_context = self.native.get_style_context()
             css = get_font_css(font)
             apply_gtk_style(style_context, css, "toga-font")
+
+    # TODO: Yet to make it exposed, on condition of the widget being orientable.
+
+    @RuntimeWarning
+    def set_direction(self, value):
+        if value == self.interface.VERTICAL:
+            self.native.set_orientation(Gtk.Orientation.VERTICAL)
+        else:
+            self.native.set_orientation(Gtk.Orientation.HORIZONTAL)
+
 
     ######################################################################
     # INTERFACE
